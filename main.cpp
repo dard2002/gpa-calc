@@ -1,19 +1,49 @@
 #include <iostream>
 #include <memory>
 #include <vector>
-#include "cgpa.h"
+#include <fstream>
+#include <string>
 
-int main() {
-    std::vector<int> grades = { 55, 60, 80 };
-    // Create unique pointer, cgpaPtr and point it to a cgpa object on the heap
-    std::unique_ptr<cgpa> cgpaPtr = std::make_unique<cgpa>("Dylan Armstrong", grades, 37.5);
+#include "gpa.h"
 
-    // Print the cgpa from the cgpaPtr pointer
-    std::cout << cgpaPtr->getcgpa() << std::endl;
-    // Print the address of the object on the heap, that the pointer is pointing to
-    std::cout << cgpaPtr << std::endl;
-    // Print the size of a cgpa object
-    std::cout << sizeof(cgpa) << " Bytes" << std::endl;
-    
+int main(int argc, char *argv[])
+{
+    if ( argv[1] == NULL )
+    {
+        std::cout << "GPA Calculator Syntax:\ngpa.exe <path_to_file>" << std::endl;
+        return 1;
+    }
+
+    std::string grade_str;
+    std::ifstream grades_file( argv[1] );
+    std::vector<int> grades;
+
+    while ( std::getline ( grades_file, grade_str ) ) 
+    {
+        grades.push_back( std::stoi( grade_str ) );
+        std::cout << "Succesfully added grade " << grade_str << std::endl;
+    }
+
+    std::unique_ptr<gpa> gpa_ptr = std::make_unique<gpa>( grades );
+
+    if ( !gpa_ptr )
+    {
+        std::cout << "Error: Memory allocation failed ( gpa_ptr )" << std::endl;
+        return 1;
+    }
+
+    double wam = 0.0;
+    for( int grade : grades )
+    {
+        wam += grade;
+    }
+
+    wam = wam / grades.size();
+
+    std::cout << "Size of GPA object: " << sizeof( gpa ) << " Bytes" << std::endl;
+    std::cout << "Memory Address of gpa_ptr: " << &gpa_ptr << std::endl;
+    std::cout << "WAM is: " << wam << std::endl;
+    std::cout << "GPA is: " << gpa_ptr->getGpa() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
+
     return 0;
 }
