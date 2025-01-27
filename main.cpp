@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
     }
 
     double wam = 0.0;
-    for( int grade : grades )
+    for ( int grade : grades )
     {
         wam += grade;
     }
