@@ -6,7 +6,7 @@
 
 #include "gpa.h"
 
-int main(int argc, char *argv[])
+int main( int argc, char *argv[] )
 {
     if ( argv[1] == NULL )
     {
@@ -43,7 +43,7 @@ int main(int argc, char *argv[])
     std::cout << "Size of GPA object: " << sizeof( gpa ) << " Bytes" << std::endl;
     std::cout << "Memory Address of gpa_ptr: " << &gpa_ptr << std::endl;
     std::cout << "WAM is: " << wam << std::endl;
-    std::cout << "GPA is: " << gpa_ptr->getGpa() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
+    std::cout << "GPA is: " << gpa_ptr->get_gpa() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
 
     return 0;
 }
