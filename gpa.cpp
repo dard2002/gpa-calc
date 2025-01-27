@@ -1,6 +1,6 @@
 #include "gpa.h"
 
-gpa::gpa( const std::vector<int> &grades ) : _grades( grades ), _credit_hours( 12.5 ) 
+gpa::gpa( const std::vector<int>& grades ) : _grades( grades ), _credit_hours( 12.5 ) 
 {
 
 }
