@@ -32,17 +32,9 @@ int main( int argc, char *argv[] )
         return 1;
     }
 
-    double wam = 0.0;
-    for ( int grade : grades )
-    {
-        wam += grade;
-    }
-
-    wam = wam / grades.size();
-
     std::cout << "Size of GPA object: " << sizeof( gpa ) << " Bytes" << std::endl;
     std::cout << "Memory Address of gpa_ptr: " << &gpa_ptr << std::endl;
-    std::cout << "WAM is: " << wam << std::endl;
+    std::cout << "WAM is: " << gpa_ptr->get_wam() << std::endl;
     std::cout << "GPA is: " << gpa_ptr->get_gpa() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
 
     return 0;

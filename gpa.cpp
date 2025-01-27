@@ -10,7 +10,7 @@ double gpa::get_gpa() const noexcept
     double total_grade_points = 0.0;
 
     // Iterate over the list of grades, and calculate the cgpa accordingly
-    for ( int grade : _grades )
+    for ( const int& grade : _grades )
     {
         if ( grade >= 80 )
         {
@@ -41,4 +41,16 @@ double gpa::get_gpa() const noexcept
 
     // Return the cgpa as a double
     return total_grade_points / ( _grades.size() * _credit_hours );
+}
+
+double gpa::get_wam() const noexcept
+{
+    double wam = 0.0;
+
+    for ( const int& grade : _grades )
+    {
+        wam += grade;
+    }
+
+    return wam / _grades.size();
 }

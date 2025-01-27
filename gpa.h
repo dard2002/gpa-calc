@@ -11,4 +11,5 @@ class gpa
         gpa(const std::vector<int> &grades);
 
         double get_gpa() const noexcept;
+        double get_wam() const noexcept;
 };
