@@ -3,10 +3,11 @@
 #include <vector>
 #include <fstream>
 #include <string>
+#include <iomanip>
 
 #include "gpa.h"
 
-int main( int argc, char *argv[] )
+int main( int argc, char* argv[] )
 {
     if ( argv[1] == NULL )
     {
@@ -33,15 +34,17 @@ int main( int argc, char *argv[] )
     }
 
     std::unique_ptr<gpa> gpa_ptr = std::make_unique<gpa>( grades );
-
+    
     if ( !gpa_ptr )
     {
         std::cout << "Error: Memory allocation failed ( gpa_ptr )" << std::endl;
         return 1;
     }
 
-    std::cout << "WAM is: " << gpa_ptr->get_wam() << std::endl;
-    std::cout << "GPA is: " << gpa_ptr->get_gpa() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
+    std::cout << "WAM is: " << std::fixed << std::setprecision(2) << gpa_ptr->get_wam() << std::endl;
+    std::cout << "GPA (4 Scale) is: " << std::fixed << std::setprecision(2) << gpa_ptr->get_gpa() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
+    std::cout << "Total Credit Points: " << std::fixed << std::setprecision(2) << gpa_ptr->get_credit_hours() << std::endl;
+    std::cout << "GPA (7 Scale) is: " << std::fixed << std::setprecision(2) << gpa_ptr->get_gpa_7() << " ( assuming 12.5 credit hours per unit ) " << std::endl;
 
     return 0;
 }

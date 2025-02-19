@@ -2,7 +2,7 @@
 
 gpa::gpa( const std::vector<int>& grades ) : _grades( grades ), _credit_hours( 12.5 ) 
 {
-
+     
 }
 
 double gpa::get_gpa() const noexcept
@@ -53,4 +53,14 @@ double gpa::get_wam() const noexcept
     }
 
     return wam / _grades.size();
+}
+
+double gpa::get_credit_hours() const noexcept
+{
+    return _grades.size() * _credit_hours;
+}
+
+double gpa::get_gpa_7() const noexcept
+{
+    return get_gpa() * 1.75;
 }

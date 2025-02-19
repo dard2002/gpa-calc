@@ -3,7 +3,7 @@ CXXFLAGS = -std=c++17 -Wall -Wextra -pedantic
 LDFLAGS = 
 SRC = main.cpp gpa.cpp
 OBJ = $(SRC:.cpp=.o)
-EXEC = gpa-calc.exe
+EXEC = gpacalc
 
 all: $(EXEC)
 
