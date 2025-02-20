@@ -2,7 +2,7 @@
 
 gpa::gpa( const std::vector<int>& grades ) : _grades( grades ), _credit_hours( 12.5 ) 
 {
-     
+    
 }
 
 double gpa::get_gpa() const noexcept
