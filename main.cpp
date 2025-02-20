@@ -11,7 +11,7 @@ int main( int argc, char* argv[] )
 {
     if ( argv[1] == NULL )
     {
-        std::cout << "GPA Calculator Syntax:\ngpa.exe <path_to_file>" << std::endl;
+        std::cout << "No txt file entered!\nPlease refer to the readme: https://github.com/dard2002/gpa-calc/blob/main/README.md" << std::endl;
         return 1;
     }
 
