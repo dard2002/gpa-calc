@@ -2,3 +2,4 @@ gpacalc
 gpacalc.exe
 *.o
 *.txt
+.vscode
